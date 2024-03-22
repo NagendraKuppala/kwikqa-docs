@@ -13,11 +13,11 @@ function HomepageHeader() {
           <div className="flex flex-col md:flex-row items-center justify-center">
             <div className="text-start">
               <div className="font-bold text-2xl md:text-3xl lg:text-4xl py-4 text-start">
-                <p className="leading-relaxed">
+                <h1 className="leading-relaxed">
                   <span className="text-green-700">KWIKQA</span> Fast and
                   Reliable end-to-end Hybrid Test Automation Framework for
                   modern web apps.
-                </p>
+                </h1>
               </div>
               <div className="py-3">
                 <Button_cn

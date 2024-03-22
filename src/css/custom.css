@@ -54,7 +54,7 @@ a.inline-flex.items-center.justify-center.whitespace-nowrap.transition-colors.fo
   border-style: solid;
 }
 
-[data-theme='dark'] .mainWrapper_node_modules-\@docusaurus-theme-classic-lib-theme-Layout-styles-module {
+[data-theme='dark'] div#__docusaurus_skipToContent_fallback {
   background-color: #020817
 }
 

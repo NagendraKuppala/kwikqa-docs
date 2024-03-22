@@ -38,10 +38,6 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
         },
         blog: {
-          //routeBasePath: "/versions",
-          // blogSidebarTitle: "Release Notes",
-          // blogTitle: "versions",
-
           showReadingTime: true,
           readingTime: ({ content, frontMatter, defaultReadingTime }) =>
             frontMatter.hide_reading_time
@@ -69,7 +65,7 @@ const config: Config = {
         'Contact for <a target="_blank" rel="noopener noreferrer" href="/contact-us">Demo</a>',
       backgroundColor: '#fafbfc',
       textColor: '#388E3C',
-      isCloseable: false,
+      isCloseable: true,
     },
     docs: {
       sidebar: {
