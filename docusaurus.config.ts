@@ -128,8 +128,8 @@ const config: Config = {
           title: "More",
           items: [
             {
-              label: "v1.1.1",
-              to: "/versions",
+              label: "Blog",
+              to: "/blog",
             },
             {
               label: "GitHub",
