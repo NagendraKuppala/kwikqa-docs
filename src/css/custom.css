@@ -1,0 +1,98 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+/* Pricing */
+.border.rounded-lg.p-6 {
+  border-style: solid;
+  border-radius: 8px;
+}
+
+button.p-\[3px\].relative {
+  border-radius: 0.375rem; /* Adjust the value as needed */
+  color: white;
+}
+
+/* Buttons */
+a.inline-flex.items-center.justify-center.whitespace-nowrap.focus-visible\:outline-none.focus-visible\:ring-1.focus-visible\:ring-ring.disabled\:pointer-events-none.disabled\:opacity-50.border.bg-background.shadow-sm.hover\:text-accent-foreground.h-14.rounded-md.px-10.text-lg.font-bold.hover\:bg-green-700.transition.duration-300.border-green-700.mr-3.my-2 {
+  border: 1px solid #45ba4b;
+    border-radius: 8px;
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1em;
+    padding: 14px 40px;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+[data-theme='dark'] a.inline-flex.items-center.justify-center.whitespace-nowrap.focus-visible\:outline-none.focus-visible\:ring-1.focus-visible\:ring-ring.disabled\:pointer-events-none.disabled\:opacity-50.border.bg-background.shadow-sm.hover\:text-accent-foreground.h-14.rounded-md.px-10.text-lg.font-bold.hover\:bg-green-700.transition.duration-300.border-green-700.mr-3.my-2 {
+    color: white;
+}
+
+a.inline-flex.items-center.justify-center.whitespace-nowrap.transition-colors.focus-visible\:outline-none.focus-visible\:ring-1.focus-visible\:ring-ring.disabled\:pointer-events-none.disabled\:opacity-50.bg-primary.text-primary-foreground.shadow.hover\:bg-primary\/90.h-8.rounded-md.px-3.text-md.font-bold.mr-3.my-2 {
+  border-style: solid;
+  border-radius: 0.325rem;
+  text-decoration: none; /* Remove underline on hover */
+}
+
+/* Cards*/
+.rounded-2xl.h-full.w-full.p-2.overflow-hidden.bg-neutral-100.dark\:bg-gray-900.border-2.border-transparent.dark\:border-white\/\[0\.2\].group-hover\:border-slate-700.relative.z-20 {
+  border-style: solid;
+}
+
+[data-theme='dark'] .mainWrapper_node_modules-\@docusaurus-theme-classic-lib-theme-Layout-styles-module {
+  background-color: #020817
+}
+
+.navbar {
+  padding: 0.5rem 2rem;
+}
+
+.navbar__title {
+  font-size:  1.5rem;
+  font-weight: 900;
+}
+
+.navbar__items {
+  font-size:  1.125rem;
+}
+
+.footer {
+  padding: 1rem 2rem;
+}
+
+/* Set background color for navbar and footer in dark mode */
+[data-theme='dark'] .navbar {
+  background-color: black;
+}
+
+[data-theme='dark'] .footer {
+  background-color: black;
+}
+
+:root {
+  --ifm-color-primary: #388E3C;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --feedback-primary-color: #388E3C;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #388E3C;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}

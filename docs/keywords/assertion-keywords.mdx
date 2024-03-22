@@ -1,0 +1,263 @@
+---
+sidebar_position: 2
+---
+
+# Assertion Keywords
+
+KWIKQA also includes web-specific [async matchers](#auto-retrying-assertions) that will wait until the expected condition is met.
+
+KWIKQA will be re-testing the element with the test id of `status` until the fetched element has the `"Submitted"` text. It will re-fetch the element and check it over and over, until the condition is met or until the timeout is reached. You can either pass this timeout or configure it once via the `testConfig.expect` value in the test config.
+
+By default, the timeout for assertions is set to 5 seconds. Learn more about [various timeouts](/docs/getting-started/timeouts).
+
+## Auto-retrying assertions
+
+The following assertions will retry until the assertion passes, or the assertion timeout is reached. Note that retrying assertions are async, so you must `await` them.
+
+| Assertion                            | Description                       |
+|--------------------------------------|-----------------------------------|
+| [toBeAttached()](#tobeattached)      | Element is attached               |
+| [toBeChecked()](#tobechecked)        | Checkbox is checked               |
+| [toBeDisabled()](#tobedisabled)      | Element is disabled               |
+| [toBeEditable()](#tobeeditable)      | Element is editable               |
+| [toBeEmpty()](#tobeempty)            | Container is empty                |
+| [toBeEnabled()](#tobeenabled)        | Element is enabled                |
+| [toBeFocused()](#tobefocused)        | Element is focused                |
+| [toBeHidden()](#tobehidden)          | Element is not visible            |
+| [toBeInViewport()](#tobeinviewport)  | Element intersects viewport       |
+| [toBeVisible()](#tobevisible)        | Element is visible                |
+| [toContainText()](#tocontaintext)    | Element contains text             |
+| [toHaveAttribute()](#tohaveattribute)| Element has a DOM attribute       |
+| [toHaveClass()](#tohaveclass)        | Element has a class property      |
+| [toHaveCount()](#tohavecount)        | List has exact number of children |
+| [toHaveCSS()](#tohavecss)            | Element has CSS property          |
+| [toHaveId()](#tohaveid)              | Element has an ID                 |
+| [toHaveJSProperty()](#tohavejsproperty)  | Element has a JavaScript property |
+| [toHaveScreenshot()](#tohavescreenshot)  | Element has a screenshot          |
+| [toHaveText()](#tohavetext)          | Element matches text              |
+| [toHaveValue()](#tohavevalue)        | Input has a value                 |
+| [toHaveValues()](#tohavevalues)      | Select has options selected       |
+| [toHaveScreenshot()](#tohavescreenshot)  | Page has a screenshot             |
+| [toHaveTitle()](#tohavetitle)        | Page has a title                  |
+| [toHaveURL()](#tohaveurl)            | Page has a URL                    |
+| [toBeOK()](#tobeok)                  | Response has an OK status         |
+
+## Negating matchers
+
+In general, we can expect the opposite to be true by adding a `not` to the front of the matchers.
+
+**For Example**
+```
+notToBeAttached()
+```
+
+## Soft assertions
+
+By default, failed assertion will terminate test execution. KWIKQA also supports soft assertions: failed soft assertions do not terminate test execution, but mark the test as failed.
+
+**For Example**
+```
+softToBeAttached()
+```
+
+## LocatorAssertions
+
+The LocatorAssertions class provides assertion methods that can be used to make assertions about the Locator state in the tests.
+
+### toBeAttached
+
+Ensures that Locator points to an element that is [connected](https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected) to a Document or a ShadowRoot.
+
+**Usage**
+
+| Keyword      | Object       | Data | Output | FailureHandling | Description|
+|--------------|--------------|------|--------|-----------------|------------|
+| toBeAttached | Element path |      |        |                 |            |
+
+Defaults to timeout in `TestConfig.expect`.
+
+***
+
+### toBeChecked
+
+Ensures the Locator points to a checked input. Wait for the checkbox element identified by the given locator to be checked.
+
+**Usage**
+
+| Keyword     | Object       | Data | Output | FailureHandling | Description|
+|-------------|--------------|------|--------|-----------------|------------|
+| toBeChecked | Element path |      |        |                 |            |
+
+Defaults to timeout in `TestConfig.expect`.
+
+***
+
+### toBeDisabled
+
+Ensures the Locator points to a disabled element. 
+Element is disabled if it has "disabled" attribute or is disabled via ['aria-disabled'](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-disabled). 
+Note that only native control elements such as HTML `button, input, select, textarea, 
+option, optgroup` can be disabled by setting "disabled" attribute. 
+"disabled" attribute on other elements is ignored by the browser.
+
+**Usage**
+
+| Keyword      | Object       | Data | Output | FailureHandling | Description|
+|--------------|--------------|------|--------|-----------------|------------|
+| toBeDisabled | Element path |      |        |                 |            |
+
+Defaults to timeout in `TestConfig.expect`.
+
+***
+
+### toBeEditable
+
+Ensures the Locator points to an editable element. Wait for the element identified by the given locator to be editable.
+
+**Usage**
+
+| Keyword      | Object       | Data | Output | FailureHandling | Description|
+|--------------|--------------|------|--------|-----------------|------------|
+| toBeEditable | Element path |      |        |                 |            |
+
+Defaults to timeout in `TestConfig.expect`.
+
+***
+
+### toBeEmpty
+
+Ensures the Locator points to an empty editable element or to a DOM node that has no text.
+
+**Usage**
+
+| Keyword   | Object       | Data | Output | FailureHandling | Description|
+|-----------|--------------|------|--------|-----------------|------------|
+| toBeEmpty | Element path |      |        |                 |            |
+
+Defaults to timeout in `TestConfig.expect`.
+
+***
+
+### toBeEnabled
+
+Ensures the Locator points to an enabled element.
+
+**Usage**
+
+| Keyword     | Object       | Data | Output | FailureHandling | Description|
+|-------------|--------------|------|--------|-----------------|------------|
+| toBeEnabled | Element path |      |        |                 |            |
+
+Defaults to timeout in `TestConfig.expect`.
+
+***
+
+### toBeFocused
+
+Ensures the Locator points to a focused DOM node.
+
+**Usage**
+
+| Keyword     | Object       | Data | Output | FailureHandling | Description|
+|-------------|--------------|------|--------|-----------------|------------|
+| toBeFocused | Element path |      |        |                 |            |
+
+Defaults to timeout in `TestConfig.expect`.
+
+***
+
+### toBeHidden
+
+Ensures that Locator either does not resolve to any DOM node, or resolves to a [non-visible](/docs/getting-started/auto-waiting#visible) one.
+
+**Usage**
+
+| Keyword    | Object       | Data | Output | FailureHandling | Description|
+|------------|--------------|------|--------|-----------------|------------|
+| toBeHidden | Element path |      |        |                 |            |
+
+Defaults to timeout in `TestConfig.expect`.
+
+***
+
+### toBeInViewport
+
+Ensures the Locator points to an element that intersects viewport, according to the [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+
+**Usage**
+
+| Keyword        | Object       | Data | Output | FailureHandling | Description|
+|----------------|--------------|------|--------|-----------------|------------|
+| toBeInViewport | Element path |      |        |                 |            |
+
+Defaults to timeout in `TestConfig.expect`.
+
+***
+
+### toBeVisible
+
+Ensures that Locator points to an attached and [visible](/docs/getting-started/auto-waiting#visible) DOM node.
+
+**Usage**
+
+| Keyword     | Object       | Data | Output | FailureHandling | Description|
+|-------------|--------------|------|--------|-----------------|------------|
+| toBeVisible | Element path |      |        |                 |            |
+
+Defaults to timeout in `TestConfig.expect`.
+
+***
+
+### toContainText
+
+Ensures the Locator points to an element that contains the given text. All nested elements will be considered when computing the text content of the element. You can use regular expressions for the value as well.
+
+**Usage**
+
+| Keyword       | Object       | Data | Output | FailureHandling | Description|
+|---------------|--------------|------|--------|-----------------|------------|
+| toContainText | Element path | Data |        |                 |            |
+
+If you pass an array as an expected value, the expectations are:
+- Locator resolves to a list of elements.
+- Elements from a subset of this list contain text from the expected array, respectively.
+- The matching subset of elements has the same order as the expected array.
+- Each text value from the expected array is matched by some element from the list.
+
+For example, consider the following list:
+```
+<ul>
+  <li>Item Text 1</li>
+  <li>Item Text 2</li>
+  <li>Item Text 3</li>
+</ul>
+```
+
+Let's see how we can use the assertion:
+```
+Element Path: 'ul > li'
+
+**// ✓ Contains the right items in the right order**
+Data: ['Text 1', 'Text 3']
+
+**// ✖ Wrong order**
+Data: ['Text 3', 'Text 1']
+
+**// ✖ Missing, No item contains this text**
+Data: ['Some 4']
+
+**// ✖ Locator points to the outer list element, not to the list items**
+Element Path: 'ul'
+Data: ['Text 1', 'Text3']
+```
+
+**Details**
+When `expected` parameter is a string, KWIKQA will normalize whitespaces and 
+line breaks both in the actual text and in the expected string before matching. 
+When regular expression is used, the actual text is matched as is.
+
+***
+
+:::info
+More keywords will be added soon.
+:::

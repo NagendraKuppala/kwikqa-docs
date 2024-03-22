@@ -1,0 +1,44 @@
+---
+sidebar_position: 1
+---
+
+# Installation
+
+**KWIKQA requires the following to be installed on your system:**
+
+- Node.js (version 18.18.2+)
+- npm (version 9.8.1+)
+- Playwright (version 1.40.0+)
+
+**KWIKQA enables automation testing ASAP(As Simple As Possible)**
+
+KWIKQA is a robust, efficient, end-to-end test automation framework designed specifically for modern web applications. With KWIKQA, you can automate your tests as simple as possible (ASAP), enabling faster testing cycles and ensuring the reliability of your applications.
+
+
+**Step 1 - Clone the repository**
+
+```text
+// highlight-start
+For now the repo is private, so you will need to request access to it. 
+Once granted, use the command to clone the project.
+// highlight-end
+
+git clone https://github.com/{username}/kwikqa.git
+```
+**Schedule Demo using [Contact-Us form](/contact-us)**
+
+**Step 2 - Navigate to the repository and install the dependencies using npm**
+
+```bash
+cd kwikqa
+npm install
+```
+
+**Usage**
+1. Prepare your test suite, test cases, and test data in Excel files according to the provided [test structure](./writing-tests.mdx).
+2. Update `playwright.config.ts` with your desired configurations.
+3. Execute your tests using playwright test command.
+
+```bash
+npx playwright test
+```

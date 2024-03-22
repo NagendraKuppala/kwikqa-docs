@@ -1,0 +1,336 @@
+---
+sidebar_position: 1
+---
+
+# Action Keywords
+
+## check
+
+Ensure that checkbox or radio element is checked.
+
+**Usage**
+
+| Keyword | Object       | Data | Output | FailureHandling | Description|
+|---------|--------------|------|--------|-----------------|------------|
+| check   | Element path |      |        |                 |            |
+
+
+**Details**
+Performs the following steps:
+
+1. Ensure that element is a checkbox or a radio input. If not, this method throws. If the element is already checked, this method returns immediately.
+2. Wait for actionability checks on the element, unless force option is set.
+3. Scroll the element into view if needed.
+4. Use page.mouse to click in the center of the element.
+5. Ensure that the element is now checked. If not, this method throws.
+6. If the element is detached from the DOM at any moment during the action, this method throws.
+
+When all steps combined have not finished during the specified timeout, this method throws a TimeoutError. Passing zero timeout disables this.
+
+***
+
+## clear
+
+Clear the input field.
+
+**Usage**
+
+| Keyword | Object       | Data | Output | FailureHandling | Description|
+|---------|--------------|------|--------|-----------------|------------|
+| clear   | Element path |      |        |                 |            |
+
+
+**Details**
+
+This method waits for [actionability](/docs/getting-started/auto-waiting) checks, focuses the element, clears it and triggers an `input` event after clearing.
+
+If the target element is not an `<input>`, `<textarea>` or `[contenteditable]` element, this method throws an error. However, if the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), the control will be cleared instead.
+
+***
+
+## click
+
+Click an element.
+
+**Usage**
+
+| Keyword | Object       | Data | Output | FailureHandling | Description|
+|---------|--------------|------|--------|-----------------|------------|
+| click   | Element path |      |        |                 |            |
+
+
+**Details**
+
+This method clicks the element by performing the following steps:
+
+- Wait for [actionability](/docs/getting-started/auto-waiting) checks on the element.
+- Scroll the element into view if needed.
+- Use page.mouse to click in the center of the element.
+- Wait for initiated navigations to either succeed or fail.
+- If the element is detached from the DOM at any moment during the action, this method throws.
+
+When all steps combined have not finished during the specified `timeout`, this method throws a `TimeoutError`. Passing zero timeout disables this.
+
+***
+
+## dblclick
+
+Double-click an element.
+
+**Usage**
+
+| Keyword  | Object       | Data | Output | FailureHandling | Description|
+|----------|--------------|------|--------|-----------------|------------|
+| dblclick | Element path |      |        |                 |            |
+
+
+**Details**
+
+This method double clicks the element by performing the following steps:
+
+- Wait for [actionability](/docs/getting-started/auto-waiting) checks on the element.
+- Scroll the element into view if needed.
+- Use page.mouse to double click in the center of the element.
+- Wait for initiated navigations to either succeed or fail.
+
+Note that if the first click of the dblclick() triggers a navigation event, this method will throw.
+
+If the element is detached from the DOM at any moment during the action, this method throws.
+
+When all steps combined have not finished during the specified `timeout`, this method throws a `TimeoutError`. Passing zero timeout disables this.
+
+***
+
+## dragTo
+
+Drag the source element towards the target element and drop it.
+
+**Usage**
+
+| Keyword | Object     | Data             | Output | FailureHandling | Description|
+|---------|------------|------------------|--------|-----------------|------------|
+| dragTo  | Source path| Destination path |        |                 |            |
+
+
+**Details**
+
+This method drags the locator to another target locator or target position. It will first move to the source element, perform a `mousedown`, then move to the target element or position and perform a `mouseup`.
+
+***
+
+## fill
+
+Set a value to the input field.
+
+**Usage**
+
+| Keyword | Object       | Data       | Output | FailureHandling | Description|
+|---------|--------------|------------|--------|-----------------|------------|
+| fill    | Element path | Input Data |        |                 |            |
+
+
+**Details**
+
+This method waits for [actionability](/docs/keywords/action-keywords.mdx) checks, focuses the element, fills it and triggers an `input` event after filling. Note that you can pass an empty string to clear the input field.
+
+If the target element is not an `<input>`, `<textarea>` or `[contenteditable]` element, this method throws an error. However, if the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), the control will be cleared instead.
+
+***
+
+## focus
+
+The [focus()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) method sets focus on the specified element, if it can be focused. The focused element is the element that will receive keyboard and similar events by default.
+
+**Usage**
+
+| Keyword | Object       | Data | Output | FailureHandling | Description|
+|---------|--------------|------|--------|-----------------|------------|
+| focus   | Element path |      |        |                 |            |
+
+***
+
+## highlight
+
+Highlight the corresponding element(s) on the screen. Useful for debugging.
+
+**Usage**
+
+| Keyword    | Object       | Data | Output | FailureHandling | Description|
+|------------|--------------|------|--------|-----------------|------------|
+| highlight   | Element path |      |        |                 |            |
+
+***
+
+## hover
+
+Hover over the matching element.
+
+**Usage**
+
+| Keyword | Object       | Data | Output | FailureHandling | Description|
+|---------|--------------|------|--------|-----------------|------------|
+| hover   | Element path |      |        |                 |            |
+
+**Details**
+
+This method clicks the element by performing the following steps:
+
+- Wait for [actionability](/docs/getting-started/auto-waiting) checks on the element.
+- Scroll the element into view if needed.
+- Use page.mouse to click in the center of the element.
+- Wait for initiated navigations to either succeed or fail.
+- If the element is detached from the DOM at any moment during the action, this method throws.
+
+When all steps combined have not finished during the specified `timeout`, this method throws a `TimeoutError`. Passing zero timeout disables this.
+
+***
+
+## press
+
+Focuses the matching element and presses a combination of the keys.
+
+**Usage**
+
+| Keyword | Object       | Data                 | Output | FailureHandling | Description|
+|---------|--------------|----------------------|--------|-----------------|------------|
+| press   | Element path | keyboard Combination |        |                 |            |
+
+**Details**
+
+Focuses the element, and then uses keyboard.down() and keyboard.up().
+
+`key` can specify the intended [keyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key) value or a single character to generate the text for. A superset of the `key` values can be found [here](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values). Examples of the keys are:
+
+`F1` - `F12`, `Digit0`-`Digit9`, `KeyA`-`KeyZ`, `Backquote`, `Minus`, `Equal`, `Backslash`, `Backspace`, `Tab`, `Delete`, `Escape`, `ArrowDown`, `End`, `Enter`, `Home`, `Insert`, `PageDown`, `PageUp`, `ArrowRight`, `ArrowUp`, etc.
+
+Following modification shortcuts are also supported: `Shift`, `Control`, `Alt`, `Meta`, `ShiftLeft`.
+
+Holding down `Shift` will type the text that corresponds to the `key` in the upper case.
+
+If `key` is a single character, it is case-sensitive, so the values `a` and `A` will generate different respective texts.
+
+Shortcuts such as `key: "Control+o"`, `key: "Control++"` or `key: "Control+Shift+T"` are supported as well. When specified with the modifier, modifier is pressed and being held while the subsequent key is being pressed.
+
+***
+
+## scrollIntoViewIfNeeded
+
+This method waits for [actionability](/docs/getting-started/auto-waiting) checks, then tries to scroll element into view, unless it is completely visible as defined by [IntersectionObserver's](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) ratio.
+
+**Usage**
+
+| Keyword                  | Object       | Data | Output | FailureHandling | Description|
+|--------------------------|--------------|------|--------|-----------------|------------|
+| scrollIntoViewIfNeeded   | Element path |      |        |                 |            |
+
+***
+
+## selectOption
+
+Selects option or options in `<select>`. 
+
+Options to select. If the `<select>` has the `multiple` attribute, all matching options are selected, otherwise only the first option matching one of the passed options is selected. String values are matching both values and labels. Option is considered matching if all specified properties match.
+
+**Usage**
+
+| Keyword      | Object       | Data        | Output | FailureHandling | Description|
+|--------------|--------------|-------------|--------|-----------------|------------|
+| selectOption | Element path | ['Options'] |        |                 |            |
+
+**Details**
+
+This method waits for [actionability](/docs/getting-started/auto-waiting) checks, waits until all specified options are present in the `<select>` element and selects these options.
+
+If the target element is not a `<select>` element, this method throws an error. However, if the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), the control will be used instead.
+
+Returns the array of option values that have been successfully selected.
+
+Triggers a `change` and `input` event once all the provided options have been selected.
+
+***
+
+## selectText
+
+This method waits for [actionability](/docs/getting-started/auto-waiting) checks, then focuses the element and selects all its text content.
+
+If the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), focuses and selects text in the control instead.
+
+**Usage**
+
+| Keyword    | Object       | Data | Output | FailureHandling | Description|
+|------------|--------------|------|--------|-----------------|------------|
+| selectText | Element path |      |        |                 |            |
+
+***
+
+## setChecked
+
+Set the state of a checkbox or a radio element.
+
+**Usage**
+
+| Keyword    | Object       | Data          | Output | FailureHandling | Description|
+|------------|--------------|---------------|--------|-----------------|------------|
+| setChecked | Element path | true or false |        |                 |            |
+
+**Details**
+
+This method checks or unchecks an element by performing the following steps:
+
+- Ensure that matched element is a checkbox or a radio input. If not, this method throws.
+- If the element already has the right checked state, this method returns immediately.
+- Wait for [actionability](/docs/getting-started/auto-waiting) checks on the matched element. If the element is detached during the checks, the whole action is retried.
+- Scroll the element into view if needed.
+- Use page.mouse to click in the center of the element.
+- Wait for initiated navigations to either succeed or fail.
+- Ensure that the element is now checked or unchecked. If not, this method throws.
+
+When all steps combined have not finished during the specified `timeout`, this method throws a `TimeoutError`. Passing zero timeout disables this.
+
+***
+
+## setInputFiles
+
+Upload file or multiple files into `<input type=file>`.
+
+**Usage**
+
+| Keyword       | Object       | Data          | Output | FailureHandling | Description|
+|---------------|--------------|---------------|--------|-----------------|------------|
+| setInputFiles | Element path | ['FilePaths'] |        |                 |            |
+
+**Details**
+
+Sets the value of the file input to these file paths or files. If some of the `filePaths` are relative paths, then they are resolved relative to the current working directory. For empty array, clears the selected files.
+
+This method expects [Locator](/docs/getting-started/locators) to point to an `<input>` element. However, if the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), targets the control instead.
+
+***
+
+## uncheck
+
+Ensure that checkbox or radio element is unchecked.
+
+**Usage**
+
+| Keyword | Object       | Data | Output | FailureHandling | Description|
+|---------|--------------|------|--------|-----------------|------------|
+| uncheck | Element path |      |        |                 |            |
+
+***
+
+## waitFor
+
+Returns when the element specified by locator satisfies the state option. State "attached"|"detached"|"visible"|"hidden" (optional) - Defaults to "visible".
+
+**Usage**
+
+| Keyword | Object       | Data  | Output | FailureHandling | Description|
+|---------|--------------|-------|--------|-----------------|------------|
+| waitFor | Element path | State |        |                 |            |
+
+***
+
+:::info
+More keywords will be added soon.
+:::

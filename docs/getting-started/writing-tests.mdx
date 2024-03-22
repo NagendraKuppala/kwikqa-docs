@@ -1,0 +1,118 @@
+---
+sidebar_position: 2
+---
+
+# Writing tests
+
+## Tests Folder Structure
+
+In the `tests` directory, you will place all your `Test_Suites`, `Test_Case`, `Data_Files` and `Object_Repository` files.
+
+```md
+    |-- tests/
+    |       |-- Test_Suites.xlsx
+    |       |-- Test_Cases/
+    |       |   |-- {TestSuiteID}.xlsx
+    |               |-- {TestCaseID}
+    |       |-- Data_Files/
+    |       |   |-- TD_{TestSuiteID}.xlsx
+    |               |-- {TestCaseID}
+    |       |-- Object_Repository.xlsx
+    |       |-- ExecutionProfile.properties
+```
+![Test Structure](/img/TestStructure.png)
+
+## Test_Suites.xlsx
+The `Test_Suites.xlsx` is the master file that contains the list of test suites and test cases to be executed. 
+
+- **Sheet 1: TestSuites** - Contains the list of Test Suites. Each row represents a test suite.  The first column is for Test Suite ID, the second column is for Test Suite Description, the third column is for Runmode.
+The "RunMode" column indicates whether the test suite should be executed or not.
+
+```md
+**Test_Suites.xlsx:**
+- Sheet1 (TestSuites):
+| TestSuiteID | Description         | Runmode |
+|-------------|---------------------|---------|
+| TS1         | TS1_Description     | Y       |
+| TS2         | TS2_Description     | N       |
+```
+
+- **Sheet n: TestSuiteID** - Contains the list of test cases for a particular test suite. Each row represents a test case. The first column is for Test Case ID, the second column is for Test Case Description, the third column is for Runmode.
+The `Test_Suites` sheet can have multiple sheets. Each sheet represents a test suite. 
+
+```md
+- Sheet2 (TS1):
+| TestCaseID | Description         | Runmode |
+|------------|---------------------|---------|
+| TC1        | TC1_Description     | Y       |
+| TC2        | TC2_Description     | N       |
+
+- Sheet3 (TS2):
+| TestCaseID | Description         | Runmode |
+|------------|---------------------|---------|
+| TC1        | TC1_Description     | Y       |
+| TC2        | TC2_Description     | N       |
+```
+
+## Test_Cases/`TestSuiteID`.xlsx
+The `Test_Cases/TestSuiteID.xlsx` are the files that contains the list of test cases for a particular test suite.
+- Each worksheet in this file is linked to a test case in the `Test_Suites.xlsx` file. The worksheet name is the same as the test case ID.
+- The first row of each worksheet contains the following columns: `Keyword | Object | Data | Output | FailureHandling | Description`
+- Each row in the worksheet represents a test step.
+
+```md
+**Test_Cases/TS1.xlsx:**
+- Sheet (TC1):
+| Keyword | Object                   | Data        | Output | FailureHandling | Description    |
+|---------|--------------------------|-------------|--------|-----------------|----------------|
+| step1   | #OR_Page1_objectname1    |   ${data1}  |        |                 |                |
+| step2   | #OR_Page1_objectname2    |   ${data2}  |        |                 |                |
+
+- Sheet (TC2):
+| Keyword | Object                   | Data        | Output | FailureHandling | Description    |
+|---------|--------------------------|-------------|--------|-----------------|----------------|
+| step1   | #OR_Page2_objectname1    |   ${data1}  |        |                 |                |
+| step2   | #OR_Page2_objectname2    |   ${data2}  |        |                 |                |
+
+**Test_Cases/TS2.xlsx**:
+- Similar structure as TS1.xlsx
+```
+
+## Object_Repository.xlsx
+The `Object_Repository.xlsx` file contains the list of all the objects that are used in the test cases. The object name is defined by prefix `#OR` and `SheetName` followed by the `object name`.
+
+```md
+**Object_Repository.xlsx:**
+
+- Sheet (Page1):
+|    Object   |  Locator |
+|-------------|----------|
+| objectname1 |   path   |
+| objectname2 |   path   |
+
+- Sheet (Page2):
+|    Object   |  Locator |
+|-------------|----------|
+| objectname1 |   path   |
+| objectname2 |   path   |
+```
+
+## Data_Files/`TD_TestSuiteID`.xlsx
+The `Data_Files/TD_TestSuiteID.xlsx` are the files that contains the list of data for a particular test suite.
+
+Each sheet in this file is associated with a test case in the `Test_Suites.xlsx` file. The sheet name is the same as the test case ID.
+
+```md
+**Data_File/TD_TS1.xlsx:**:
+- Sheet (TC1):
+  | data1 | data2   |
+  |-------|---------|
+  |  A1   |  B1     |
+  |  A1   |  B1     |
+
+  - Sheet (TC2):
+  | data1 | data2   |
+  |-------|---------|
+  |  A1   |  B1     |
+  |  A1   |  B1     |
+```
