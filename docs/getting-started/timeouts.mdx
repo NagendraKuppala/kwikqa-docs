@@ -1,0 +1,72 @@
+---
+sidebar_position: 5
+---
+
+# Timeouts
+
+KWIKQA has multiple configurable timeouts for various tasks.
+
+| Timeout           | Default    | Description                                                                                           |
+|-------------------|------------|-------------------------------------------------------------------------------------------------------|
+| Test timeout      | 30000 ms   | Timeout for each test, includes test, hooks, and fixtures:                                            |
+|                   |            | - **SET DEFAULT**: `config = { timeout: 60000 }`                                                       |
+|                   |            | - **OVERRIDE**: `test.setTimeout(120000)`                                                             |
+| Expect timeout    | 5000 ms    | Timeout for each assertion:                                                                           |
+|                   |            | - **SET DEFAULT**: `config = { expect: { timeout: 10000 } }`                                          |
+|                   |            | - **OVERRIDE**: `expect(locator).toBeVisible({ timeout: 10000 })`                                      |
+
+## Test timeout
+
+KWIKQA Test enforces a timeout for each test, 30 seconds by default. 
+Time spent by the `test function`, `fixtures`, `beforeEach` and `afterEach` hooks 
+is included in the test timeout.
+
+Timed out test produces the following error:
+
+```
+example.spec.ts:3:1 › basic test ===========================
+
+Timeout of 30000ms exceeded.
+```
+
+The same timeout value also applies to `beforeAll` and `afterAll` hooks, 
+but they do not share time with any test.
+
+### Set test timeout in the config
+
+```ts
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  timeout: 5 * 60 * 1000,
+});
+```
+
+## Expect timeout
+
+Web-first assertions like expect(locator).toHaveText() have a separate timeout, 5 seconds by default. Assertion timeout is unrelated to the test timeout. 
+
+It produces the following error:
+```
+example.spec.ts:3:1 › basic test ===========================
+
+Error: expect(received).toHaveText(expected)
+
+Expected string: "my text"
+Received string: ""
+Call log:
+  - expect.toHaveText with timeout 5000ms
+  - waiting for "locator('button')"
+```
+
+### Set expect timeout in the config
+
+```ts
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  expect: {
+    timeout: 10 * 1000,
+  },
+});
+```

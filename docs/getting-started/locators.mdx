@@ -19,7 +19,7 @@ These are the recommended built in locators.
 - [getByTestId()](#locate-by-test-id) to locate an element based on its data-testid attribute (other attributes can be configured).
 
 CSS and XPath are not recommended as the DOM can often change leading to non resilient tests. Instead, try to come up with a locator that is close to how the user perceives the page such as role locators or define an explicit testing contract using test ids.
-- [getByCSS() or getByXPath()](/locators#locate-by-css-or-xpath) to locate an element using CSS selectors or XPath expressions.
+- [getByCSS() or getByXPath()](#locate-by-css-or-xpath) to locate an element using CSS selectors or XPath expressions.
 
 ## Locating elements
 KWIKQA comes with multiple built-in locators. To make tests resilient, we recommend prioritizing user-facing attributes and explicit contracts such as getByRole().
