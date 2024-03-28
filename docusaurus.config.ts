@@ -50,6 +50,12 @@ const config: Config = {
         theme: {
           customCss: "./src/css/custom.css",
         },
+        sitemap: {
+          changefreq: 'monthly' as any,
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.website.xml',
+        },
       } satisfies Preset.Options,
     ],
   ],
