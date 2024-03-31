@@ -25,6 +25,7 @@ const sidebars: SidebarsConfig = {
         "getting-started/writing-tests",
         "getting-started/locators",
         "getting-started/auto-waiting",
+        "getting-started/timeouts",
       ],
     },
     {

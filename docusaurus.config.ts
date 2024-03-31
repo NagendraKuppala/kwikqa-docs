@@ -5,8 +5,8 @@ import tailwindPlugin from "./plugins/tailwind-plugin.cjs";
 
 const config: Config = {
   title: "KWIKQA",
-  tagline: "Automation made ASAP(As Simple As Possible)",
-  favicon: "img/favicon.ico",
+  tagline: "Test Automation made ASAP(As Simple As Possible)",
+  favicon: "/img/favicon.ico",
 
   // Set the production url of your site here
   url: "https://kwikqa.com",
