@@ -65,6 +65,15 @@ const config: Config = {
   ],
 
   themeConfig: {
+    headTags: [
+      {
+        tagName: 'link',
+        attributes: {
+          rel: 'icon',
+          href: '/img/favicon.ico',
+        },
+      },
+    ],
     announcementBar: {
       id: 'schedule_demo',
       content:

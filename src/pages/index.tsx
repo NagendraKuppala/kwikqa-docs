@@ -82,7 +82,8 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`${siteConfig.title}`}
+      // title={`${siteConfig.title}`}
+      title='Fast and Reliable end-to-end Test Automation Framework'
       description="Fast and Reliable end-to-end Test Automation Framework for modern Web Apps."
     >
       <HomepageHeader />
