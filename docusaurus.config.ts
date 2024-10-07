@@ -142,10 +142,10 @@ const config: Config = {
               label: "Blog",
               to: "/blog",
             },
-            {
-              label: "GitHub",
-              href: "https://github.com/NagendraKuppala/kwikui",
-            },
+            // {
+            //   label: "GitHub",
+            //   href: "https://github.com/NagendraKuppala/kwikui",
+            // },
           ],
         },
       ],

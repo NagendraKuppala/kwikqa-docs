@@ -56,15 +56,15 @@ export default function Contact() {
     <Layout>
       <div className="h-full w-full flex flex-col gap-6 sm:flex-row bg-neutral-100 dark:bg-main justify-center">
         <div className="p-8 text-center justify-center sm:w-full md:w-3/5">
-          <img src="/img/pf_photo.jpeg" className="rounded-full w-48 h-48" />
+          {/* <img src="/img/pf_photo.jpeg" className="rounded-full w-48 h-48" />
           <h1>NAGENDRA KUPPALA</h1>
           <h5 className="mb-4">
             MS | MBA | SDET | QA | Full Stack Developer | Azure AZ-900 | CSPO |
             Certified SAFe 6.0 Agilist
-          </h5>
+          </h5> */}
           <p className="text-justify mb-1">
             Driven by the vision to make automation testing as simple as
-            possible, I've meticulously crafted <span className="text-green-700 font-semibold">KWIKQA</span> to be the ultimate
+            possible, We have meticulously crafted <span className="text-green-700 font-semibold">KWIKQA</span> to be the ultimate
             solution for companies seeking efficiency and reliability in their
             testing endeavors. With <span className="text-green-700 font-semibold">KWIKQA</span> Test Automation Framework, businesses
             are empowered to embrace automation testing with confidence,
