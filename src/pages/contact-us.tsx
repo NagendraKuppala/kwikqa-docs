@@ -17,7 +17,7 @@ export default function Contact() {
     e.preventDefault();
 
     // Your EmailJS service ID, template ID, and Public Key
-    const serviceId = 'service_43axj54';
+    const serviceId = 'service_iavx9sn';
     const templateId = 'template_d2lhdrc';
     const publicKey = 'VuqwGF1tobU3FrIdM';
 
